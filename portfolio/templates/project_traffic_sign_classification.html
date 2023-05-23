@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="main main--project">
+    <div>
+        <img class="hero hero--highway" src="{{ url_for('static', filename=project['hero']) }}"
+            alt="picture of the traffic signs" />
+
+        <article class="project">
+            <article class="project__content">
+                <h2 class="project__heading">{{ project['name'] }}</h2>
+
+                <p>
+                    The Traffic Sign Classification Algorithm is a deep learning model designed to identify and classify
+                    various traffic signs. The algorithm utilizes a Convolutional Neural Network (CNN) architecture,
+                    implemented using the Keras library. The model is trained on a dataset consisting of images of
+                    different traffic signs.
+                </p>
+                <p>
+                    The algorithm starts by importing the necessary libraries and setting the parameters such as the
+                    path to the dataset, batch size, and image dimensions. The dataset is then imported and split into
+                    training, validation, and test sets. Data preprocessing techniques, such as grayscale conversion,
+                    histogram equalization, and normalization, are applied to enhance the images' features and prepare
+                    them for training.
+                </p>
+                <p>
+                    Next, the model architecture is defined, consisting of multiple convolutional and pooling layers
+                    followed by fully connected layers. Dropout layers are also incorporated to prevent overfitting. The
+                    model is compiled using the Adam optimizer and trained on the training set. The training progress is
+                    monitored and visualized using plots for loss and accuracy.
+                </p>
+                <p>
+                    After training, the model is evaluated on the test set to assess its performance. The test score and
+                    accuracy are displayed. Additionally, the trained model is saved as a pickle object for future use.
+                </p>
+                <p>
+                    Overall, the Traffic Sign Classification Algorithm demonstrates the effectiveness of CNNs in
+                    accurately identifying and classifying traffic signs, making it a valuable tool for traffic
+                    management and autonomous driving systems.
+                </p>
+            </article>
+            <section>
+                <article class="project__meta-group">
+                    <h3 class="project__heading project__heading--meta">Technologies used</h3>
+
+                    <ul class="technology-list">
+                        <li class="technology-list__item">Keras</li>
+                        <li class="technology-list__item">OpenCV</li>
+                        <li class="technology-list__item">Python</li>
+                    </ul>
+                </article>
+
+                <a class="cta" href="{{ project['prod'] }}">
+                    <img class="cta__icon" src="{{ url_for('static', filename='img/pointer.svg') }}">
+                    Access code here.
+                </a>
+            </section>
+        </article>
+    </div>
+</main>
+{% endblock %}

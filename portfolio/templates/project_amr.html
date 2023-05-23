@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="main main--project">
+    <div>
+        <img class="hero hero--amr" src="{{ url_for('static', filename=project['hero']) }}" alt="picture of the AMR" />
+
+        <article class="project">
+            <article class="project__content">
+                <h2 class="project__heading">{{ project['name'] }}</h2>
+
+                <p>
+                    My final year project was the design and development of an Autonomous Mobile Robot with an automated
+                    devlivery mechanism for use in warehouses. For this project, I worked in the Robotics and
+                    Intelligent Systems Engineering (R.I.S.E) Lab under the supervision of
+                    <a class="main__link" href="https://sites.google.com/view/kfiqbal">Dr. Khawaja Fahad
+                        Iqbal</a>.
+                </p>
+                <p>
+                    The robot made use of a differential wheel drive for locomotion. The automated delivery mechanism
+                    used automated rollers which detected the presence of the object at pickup, loaded them to the
+                    center of the platform, and dropped them off at the designated endpoint.
+                </p>
+                <p>
+                    My part in the project was to focus on the concept development, and programming of the mobile robot.
+                    For obstacle detection, the robot used ultrasonic sensors. For distance tracking, wheel encoders
+                    were used. IR sensors were used for delivery object tracking. Arduino was used as the processing
+                    unit for this project.
+                </p>
+                <p>
+                    The results of the project were presented and published at the Applied Human Factors and Ergonomics
+                    Conference (2022) titled <a class="main__link"
+                        href="https://openaccess.cms-conferences.org/publications/book/978-1-958651-11-7/article/978-1-958651-11-7_5">A
+                        Chain-Driven Live Roller Mechanism for Loading and
+                        Unloading Packages on Autonomous Mobile Robots in Warehouses.</a>
+                    I was responsible for the technical writing of the paper, and was designated as the primary author
+                    of the paper.
+                </p>
+            </article>
+            <section>
+                <article class="project__meta-group">
+                    <h3 class="project__heading project__heading--meta">Technologies used</h3>
+
+                    <ul class="technology-list">
+                        <li class="technology-list__item">Robotics</li>
+                        <li class="technology-list__item">Manufacturing Processes</li>
+                        <li class="technology-list__item">Arduino Programming</li>
+                    </ul>
+                </article>
+
+                <a class="cta" href="{{ project['prod'] }}">
+                    <img class="cta__icon" src="{{ url_for('static', filename='img/pointer.svg') }}">
+                    Read more here.
+                </a>
+            </section>
+        </article>
+    </div>
+</main>
+{% endblock %}

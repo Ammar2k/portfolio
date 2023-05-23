@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="main main--project">
+    <div>
+        <img class="hero hero--highway" src="{{ url_for('static', filename=project['hero']) }}"
+            alt="picture of the highway lanes" />
+
+        <article class="project">
+            <article class="project__content">
+                <h2 class="project__heading">{{ project['name'] }}</h2>
+
+                <p>
+                    I undertook a project focused on highway lane detection, which involved the development of an
+                    algorithm to identify and highlight the lanes on a road in a given video. The goal was to provide a
+                    visual representation of the lanes, aiding in navigation and ensuring driver safety.
+                </p>
+                <p>
+                    To accomplish this, I utilized the OpenCV library, which provides a wide range of computer vision
+                    functions. The main steps of the lane detection algorithm are as follows:
+                </p>
+                <ol>
+                    <li>Preprocessing: The input video frames were initially converted from color to grayscale using the
+                        <code>cv2.cvtColor()</code> function. This step simplifies subsequent image processing
+                        operations.
+                    </li>
+                    <li>Edge Detection: To identify the edges of the lanes, I employed the Canny edge detection
+                        algorithm, accessible through the <code>cv2.Canny()</code> function. This algorithm identifies
+                        regions of rapid intensity changes in the grayscale image, highlighting the boundaries of
+                        objects.</li>
+                    <li>Region of Interest: Since we are primarily interested in the lower region of the video frames
+                        where the driving lanes are located, a region of interest (ROI) was defined. This triangular ROI
+                        was specified by selecting three points: the bottom left, bottom right, and upper center of the
+                        frame. The <code>region_of_interest()</code> function used the ROI coordinates to create a mask,
+                        effectively removing all other regions from further processing.</li>
+                    <li>Line Detection: The Hough Transform method was employed to detect lines within the ROI. The
+                        <code>cv2.HoughLinesP()</code> function was utilized, which utilizes a probabilistic variant of
+                        the Hough Transform to detect line segments. The detected lines were stored as sets of
+                        endpoints, defining their start and end coordinates.
+                    </li>
+                    <li>Visualization: To provide a clear representation of the detected lanes, the
+                        <code>draw_the_lines()</code> function was implemented. This function created a separate image
+                        with black background and drew the detected lane lines in blue. The resulting image was then
+                        merged with the original frame using the <code>cv2.addWeighted()</code> function, allowing the
+                        lane lines to be displayed prominently.
+                    </li>
+                </ol>
+                <p>
+                    Finally, the processed frames were displayed as a video using the <code>cv2.imshow()</code> function
+                    within a while loop. Each frame was processed by the lane detection algorithm, resulting in a
+                    real-time visualization of the detected lanes. The video playback was controlled using the
+                    <code>cv2.waitKey()</code> function.
+                </p>
+                <p>
+                    By implementing this highway lane detection project, I was able to successfully identify and
+                    highlight the driving lanes in a given video. This algorithm can be further optimized and integrated
+                    into autonomous driving systems, advanced driver assistance systems (ADAS), and other applications
+                    aimed at improving road safety and navigation.
+                </p>
+            </article>
+            <section>
+                <article class="project__meta-group">
+                    <h3 class="project__heading project__heading--meta">Technologies used</h3>
+
+                    <ul class="technology-list">
+                        <li class="technology-list__item">Compuer Vision</li>
+                        <li class="technology-list__item">OpenCV</li>
+                        <li class="technology-list__item">Python</li>
+                    </ul>
+                </article>
+
+                <a class="cta" href="{{ project['prod'] }}">
+                    <img class="cta__icon" src="{{ url_for('static', filename='img/pointer.svg') }}">
+                    Access code here.
+                </a>
+            </section>
+        </article>
+    </div>
+</main>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block content %}
+<main class="main main--about">
+    <div class="profile--picture">
+        <img src="{{ url_for('static', filename='img/display.png') }}" alt="Profile Picture" />
+    </div>
+    <div class="about--text">
+        <p>
+            I am Muhammad Ammar, a recent graduate from the National University of Sciences and Technology with a
+            Bachelor's
+            degree in Mechanical Engineering. Throughout my academic journey, I developed a keen interest in
+            problem-solving
+            and data analysis, which propelled me towards pursuing a career in the field of intelligent robotics,
+            machine
+            learning, and artificial intelligence.
+        </p>
+        <p>
+            During my undergraduate studies, I undertook a significant project focusing on the design and development of
+            an
+            <a class="main__link" href="{{ url_for('project', slug='amr') }}">Autonomous Mobile Robot</a>. This project
+            not
+            only showcased my technical skills but also ignited my curiosity in intelligent robotics, prompting me to
+            delve
+            deeper into the realms of machine learning and artificial intelligence.
+        </p>
+        <p>
+            Since completing my degree, I have been actively enhancing my expertise in the fields of machine learning
+            and
+            computer vision. I embarked on the Machine Learning Specialization offered by DeepLearningAI, which served
+            as a
+            foundation for understanding the fundamental concepts of machine learning. Additionally, I delved into
+            computer
+            vision, beginning with OpenCV and gradually progressing to advanced deep learning algorithms such as YOLO
+            and
+            SSD. As a result, I have acquired a robust skill set in these domains, proficiently utilizing major
+            libraries
+            such as scikit-learn, Keras, and PyTorch. Furthermore, I possess knowledge of model optimization techniques
+            and
+            have implemented numerous personal projects to further refine my skills.
+        </p>
+        <p>
+            To augment my professional competencies, I am currently focused on expanding my knowledge in web
+            development. I
+            have gained proficiency in HTML and CSS for frontend development, alongside utilizing Flask for backend
+            development and MongoDB for database management. My experience in building various basic websites has
+            equipped
+            me with the necessary skills to transition into this field professionally, allowing me to leverage my
+            existing
+            skill set in conjunction with my passion for machine learning.
+        </p>
+        <p>
+            Presently, I am seeking an entry-level position that aligns with my skill sets. My ideal workplace would
+            enable
+            me to train machine learning models and deploy them into production through the medium of web development.
+            This
+            dynamic environment would not only utilize my existing proficiencies but also provide me with the
+            opportunity to
+            gain expertise in areas that are currently less familiar to me, such as MLOps and model deployment. However,
+            as
+            I am still in the nascent stage of my professional journey, I am open to roles that enable me to further
+            develop
+            my skills in machine learning engineering, web development, or production analysis.
+        </p>
+        <p>
+            In conclusion, I am a motivated individual with a strong foundation in mechanical engineering, combined with
+            a
+            growing skill set in machine learning, computer vision, and web development. I am eager to contribute to a
+            fast-paced industry, utilizing my problem-solving abilities and passion for data analysis to make a positive
+            impact. I am confident that my enthusiasm and dedication, coupled with my continuous learning mindset, will
+            enable me to thrive in a professional setting.
+        </p>
+    </div>
+</main>
+{% endblock %}
